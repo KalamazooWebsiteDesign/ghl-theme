@@ -6,17 +6,24 @@ Hosted via [jsDelivr](https://www.jsdelivr.com/) — single `<link>` tag in GHL 
 
 ## Use it
 
-Paste this into **Agency → Settings → Company → Custom CSS** (or per-subaccount Tracking Code field):
+Paste this into **Agency → Settings → Company → Custom JavaScript** (the Custom CSS field rejects HTML tags — JS injector required):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.0/dist/main.css">
+<script>
+(function () {
+  var l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.0/dist/main.css';
+  document.head.appendChild(l);
+})();
+</script>
 ```
 
-Bump the version tag to upgrade. Pin to a specific tag to avoid surprise breakage.
+Bump the version tag in `l.href` to upgrade. Pin to a specific tag to avoid surprise breakage.
 
 For latest (auto-update, no rollback safety):
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@main/dist/main.css">
+```
+https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@main/dist/main.css
 ```
 
 ## Structure
@@ -54,19 +61,16 @@ https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@<tag>/dist/main.css
 
 ## Per-tenant overrides
 
-Each subaccount's Tracking Code can prepend variable overrides before the `<link>`:
+Each subaccount's Custom CSS field accepts raw CSS (no HTML). Put var overrides there:
 
-```html
-<style>
-  :root {
-    --primary: #ff6600;
-    --kwd-gold: #c0392b;
-  }
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.0/dist/main.css">
+```css
+:root {
+  --primary: #ff6600;
+  --kwd-gold: #c0392b;
+}
 ```
 
-Bundle reads vars → client-specific brand without forking CSS.
+The shared bundle is loaded once at agency level via Custom JS injector and cascades down — subaccount only needs vars.
 
 ## Versioning
 
