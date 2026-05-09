@@ -1,0 +1,18 @@
+/* ============================================================
+   SIDEBAR ITEM REORDER
+   Pin custom menu links (Onboarding / KWD Hub / Tutorials) to
+   the top of subaccount sidebar via flex `order`.
+   IDs are agency-level Custom Menu Link UUIDs — shared across
+   every subaccount that has these links enabled.
+   ============================================================ */
+#sidebar-v2 nav {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Onboarding */
+#sidebar-v2 nav > a[id="3428d6f4-5f9f-41cb-bcd9-c276977d8819"] { order: -3 !important; }
+/* KWD Hub */
+#sidebar-v2 nav > a[id="9d1edb9e-5e68-41e9-975e-c647c67c7708"] { order: -2 !important; }
+/* Tutorials */
+#sidebar-v2 nav > a[id="ddee9606-06b2-4838-a924-ea9c07b834ed"] { order: -1 !important; }
