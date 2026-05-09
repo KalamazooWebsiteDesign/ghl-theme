@@ -1,0 +1,72 @@
+/* ============================================================
+   SIDEBAR COLLAPSE TO ICONS
+   Default: 70px (icons only). Hover: 230px (full labels).
+   Smooth transition. Inner content (.w-56 Tailwind container)
+   shrinks in lockstep so children don't overflow.
+   ============================================================ */
+.flex.v2-open #sidebar-v2,
+.flex.v2-open #sidebar-v2 .w-56 {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+  transition:
+    width 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    min-width 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    max-width 220ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.flex.v2-open #sidebar-v2 {
+  overflow: hidden !important;
+  z-index: 30;
+  position: relative;
+}
+
+.flex.v2-open #sidebar-v2:hover,
+.flex.v2-open #sidebar-v2:hover .w-56 {
+  width: 230px !important;
+  min-width: 230px !important;
+  max-width: 230px !important;
+}
+
+.flex.v2-open #sidebar-v2:hover {
+  overflow: visible !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Hide text-bearing wrappers when collapsed */
+.flex.v2-open #sidebar-v2:not(:hover) .w-36,
+.flex.v2-open #sidebar-v2:not(:hover) .hl_location-text,
+.flex.v2-open #sidebar-v2:not(:hover) .hl_switcher-loc-name,
+.flex.v2-open #sidebar-v2:not(:hover) .search-placeholder,
+.flex.v2-open #sidebar-v2:not(:hover) .search-shortcut,
+.flex.v2-open #sidebar-v2:not(:hover) [class*="search-placeholder"],
+.flex.v2-open #sidebar-v2:not(:hover) [class*="search-shortcut"],
+.flex.v2-open #sidebar-v2:not(:hover) input,
+.flex.v2-open #sidebar-v2:not(:hover) kbd,
+.flex.v2-open #sidebar-v2:not(:hover) [class*="kbd"],
+.flex.v2-open #sidebar-v2:not(:hover) nav a span,
+.flex.v2-open #sidebar-v2:not(:hover) nav a .truncate {
+  display: none !important;
+}
+
+/* Center icons + tighten padding when collapsed */
+.flex.v2-open #sidebar-v2:not(:hover) nav a {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Logo: scale to fit 70px */
+.flex.v2-open #sidebar-v2:not(:hover) img {
+  max-width: 50px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* Location switcher: icon-only when collapsed */
+.flex.v2-open #sidebar-v2:not(:hover) #location-switcher-sidbar-v2 {
+  padding: 6px !important;
+  justify-content: center !important;
+  width: 50px !important;
+  margin: 0 auto !important;
+}

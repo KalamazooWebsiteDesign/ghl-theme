@@ -1,0 +1,12 @@
+/* ============================================================
+   TOPBAR — hide unused widgets
+   Hides: Need Help, Changelog, Voice Calling, Calendar Updates
+   ============================================================ */
+#hl_header--help-icon,
+#canny_logs-toggle,
+#CalendarsFeatureDiscovery,
+#CalendarOnboardingChat,
+.hl_header--controls button[title*="oice" i],
+.hl_header--controls a[title*="oice" i] {
+  display: none !important;
+}
