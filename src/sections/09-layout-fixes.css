@@ -1,0 +1,35 @@
+/* ============================================================
+   LAYOUT FIXES (collapse-aware)
+   GHL renders the page-level header (.hl_header) as
+   position: fixed; left: 0; full viewport width — and the
+   main section uses Tailwind .w-full (100% of flex parent).
+   Both ignore the sidebar's space.
+
+   With our 70px collapsed sidebar, that means the header
+   overlays the sidebar at the left and the section overflows
+   the viewport on the right.
+
+   Fix: section uses flex: 1 (fills remaining space), header
+   shifts left + width by sidebar width. :has() lets the header
+   react to sidebar hover.
+   ============================================================ */
+
+html:not([data-kwd-page="settings"]) .flex.v2-open > section.w-full {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+html:not([data-kwd-page="settings"]) .flex.v2-open header.hl_header {
+  left: 74px !important;
+  width: calc(100% - 74px) !important;
+  transition:
+    left 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    width 220ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html:not([data-kwd-page="settings"]) .flex.v2-open:has(#sidebar-v2:hover) header.hl_header {
+  left: 234px !important;
+  width: calc(100% - 234px) !important;
+}
