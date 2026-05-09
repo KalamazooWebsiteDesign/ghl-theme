@@ -17,6 +17,10 @@ mkdir -p "$ROOT/dist"
   done
 } > "$OUT"
 
+cp "$ROOT/src/loader.js" "$ROOT/dist/loader.js"
+
 LINES=$(wc -l < "$OUT")
 BYTES=$(wc -c < "$OUT")
+LOADER_BYTES=$(wc -c < "$ROOT/dist/loader.js")
 echo "built dist/main.css — ${LINES} lines, ${BYTES} bytes"
+echo "built dist/loader.js — ${LOADER_BYTES} bytes"

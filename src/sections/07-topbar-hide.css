@@ -6,6 +6,7 @@
 #canny_logs-toggle,
 #CalendarsFeatureDiscovery,
 #CalendarOnboardingChat,
+#template-power-dialer,
 .hl_header--controls button[title*="oice" i],
 .hl_header--controls a[title*="oice" i] {
   display: none !important;

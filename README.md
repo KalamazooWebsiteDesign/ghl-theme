@@ -6,24 +6,19 @@ Hosted via [jsDelivr](https://www.jsdelivr.com/) — single `<link>` tag in GHL 
 
 ## Use it
 
-Paste this into **Agency → Settings → Company → Custom JavaScript** (the Custom CSS field rejects HTML tags — JS injector required):
+Paste this into **Agency → Settings → Company → Custom JavaScript** (the Custom CSS field rejects HTML tags — loader injects the link tag for you and also marks `<html data-kwd-page="settings|main">` for SPA-aware CSS scoping):
 
 ```html
-<script>
-(function () {
-  var l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.0/dist/main.css';
-  document.head.appendChild(l);
-})();
-</script>
+<script src="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.3/dist/loader.js"></script>
 ```
 
-Bump the version tag in `l.href` to upgrade. Pin to a specific tag to avoid surprise breakage.
+The loader auto-loads the matching CSS at the same version tag.
+
+Bump the version in the `<script src>` to upgrade — that's the only change needed in GHL.
 
 For latest (auto-update, no rollback safety):
 ```
-https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@main/dist/main.css
+https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@main/dist/loader.js
 ```
 
 ## Structure
