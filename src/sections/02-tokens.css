@@ -1,0 +1,42 @@
+/* ============================================================
+   TOKENS — single source of truth for colors / brand
+   GHL exposes 533 CSS vars. Override key ones here.
+   Brand-specific overrides go in per-tenant inline <style> blocks.
+   ============================================================ */
+:root {
+  /* Sidebar / nav */
+  --nav-menus-background-color: #0ab3ff00;
+  --nav-menu-text-color: #09628c;
+  --nav-menu-icon-color: #0474a8;
+  --nav-hover-background-color: #009ce43d;
+  --location-switcher-background-color: #009ce43d;
+  --sidebar-agency-back-button: #b8e1f5;
+  --card-header-background-color: #b8e1f5;
+  --card-header-text-color: #000;
+  --button-background-color: #45caf9;
+  --tw-ring-color: #45caf9;
+
+  /* Action / brand */
+  --kwd-action-navy: #001427;
+
+  /* Login (NEXUS) */
+  --kwd-navy: #0a1828;
+  --kwd-navy-soft: rgba(10, 24, 40, 0.7);
+  --kwd-cream: #fafaf7;
+  --kwd-linen: #f4efe3;
+  --kwd-gold: #b5894a;
+  --kwd-gold-hover: #9a7339;
+  --kwd-border: rgba(10, 24, 40, 0.14);
+  --kwd-muted: rgba(10, 24, 40, 0.55);
+
+  --login-btn-color: var(--kwd-navy);
+  --login-btn-hover: #14233a;
+  --login-btn-text: #ffffff;
+  --login-body-bg: #fafaf7;
+  --login-input-border: var(--kwd-border);
+  --login-input-focus: var(--kwd-gold);
+  --login-heading-color: var(--kwd-navy);
+  --login-text-color: var(--kwd-navy-soft);
+  --login-link-color: var(--kwd-gold);
+  --login-bg-image: url("https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=2400&q=80");
+}

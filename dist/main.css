@@ -1,0 +1,704 @@
+/*! KWD GHL Theme — built 2026-05-09T21:34:00Z */
+
+/* ============================================================
+   FONTS — Google Fonts imports
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Montserrat+Alternates:ital,wght@0,300..700;1,300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400..900&family=Geist+Mono:wght@400..600&family=Fraunces:opsz,wght@9..144,300..500&display=swap");
+
+/* ============================================================
+   TOKENS — single source of truth for colors / brand
+   GHL exposes 533 CSS vars. Override key ones here.
+   Brand-specific overrides go in per-tenant inline <style> blocks.
+   ============================================================ */
+:root {
+  /* Sidebar / nav */
+  --nav-menus-background-color: #0ab3ff00;
+  --nav-menu-text-color: #09628c;
+  --nav-menu-icon-color: #0474a8;
+  --nav-hover-background-color: #009ce43d;
+  --location-switcher-background-color: #009ce43d;
+  --sidebar-agency-back-button: #b8e1f5;
+  --card-header-background-color: #b8e1f5;
+  --card-header-text-color: #000;
+  --button-background-color: #45caf9;
+  --tw-ring-color: #45caf9;
+
+  /* Action / brand */
+  --kwd-action-navy: #001427;
+
+  /* Login (NEXUS) */
+  --kwd-navy: #0a1828;
+  --kwd-navy-soft: rgba(10, 24, 40, 0.7);
+  --kwd-cream: #fafaf7;
+  --kwd-linen: #f4efe3;
+  --kwd-gold: #b5894a;
+  --kwd-gold-hover: #9a7339;
+  --kwd-border: rgba(10, 24, 40, 0.14);
+  --kwd-muted: rgba(10, 24, 40, 0.55);
+
+  --login-btn-color: var(--kwd-navy);
+  --login-btn-hover: #14233a;
+  --login-btn-text: #ffffff;
+  --login-body-bg: #fafaf7;
+  --login-input-border: var(--kwd-border);
+  --login-input-focus: var(--kwd-gold);
+  --login-heading-color: var(--kwd-navy);
+  --login-text-color: var(--kwd-navy-soft);
+  --login-link-color: var(--kwd-gold);
+  --login-bg-image: url("https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?auto=format&fit=crop&w=2400&q=80");
+}
+
+/* ============================================================
+   SIDEBAR / NAV THEME
+   Targets: #sidebar-v2, nav, #quickActions, location switcher
+   Vars used: --nav-menus-background-color, --nav-menu-*,
+              --sidebar-agency-back-button, --location-switcher-*
+   ============================================================ */
+.v2-open #sidebar-v2,
+#sidebar-v2 .default-bg-color,
+#sidebar-v2.default-bg-color,
+#sidebar-v2 #sb_divider-1 {
+  background: var(--nav-menus-background-color) !important;
+}
+
+#sidebar-v2 #backButtonv2 {
+  background: var(--sidebar-agency-back-button) !important;
+}
+
+#quickActions {
+  border: 1px solid var(--nav-menu-icon-color) !important;
+  border-radius: 50px !important;
+}
+
+#quickActions img {
+  filter: brightness(0.66) contrast(1.84) hue-rotate(53deg) saturate(1.91);
+}
+
+nav a { margin-top: 5px !important; }
+
+#sidebar-v2 .text-white,
+nav .text-white,
+nav span {
+  --tw-text-opacity: 1;
+  color: var(--nav-menu-text-color) !important;
+}
+
+#sb_agency-partners svg path,
+#sb_sites svg path,
+#sb_contacts svg path {
+  fill: var(--nav-menu-icon-color) !important;
+}
+
+nav svg path { stroke: var(--nav-menu-icon-color) !important; }
+
+nav a.active,
+nav a:hover,
+#sb_other-settings {
+  background: var(--nav-hover-background-color) !important;
+}
+
+#location-switcher-sidbar-v2 {
+  background: var(--location-switcher-background-color) !important;
+}
+
+/* Settings / back-to-agency icon swap */
+#sb_agency-settings::before,
+#sb_settings::before,
+#sb_undefined::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 16px;
+  font-size: 17px;
+}
+#sb_agency-settings::before,
+#sb_settings::before { content: "\f013"; }
+#sb_undefined::before { content: "\f0e2"; }
+
+#sb_agency-settings,
+#sb_settings,
+#sb_undefined {
+  padding-left: 40px !important;
+}
+#sb_agency-settings > img,
+#sb_settings > img,
+#sb_undefined > img { display: none; }
+
+/* Card headers */
+.card-header { background: var(--card-header-background-color) !important; }
+.card-header h2,
+.card-header h3 { color: var(--card-header-text-color) !important; }
+
+#dashboard .hl_tasks-list button.dropdown-toggle,
+#dashboard .hl_dashboard--sales-funnel .btn.btn-primary {
+  background-color: transparent !important;
+}
+
+.bg-apple-500 { background: var(--button-background-color) !important; }
+.focus\:outline-none:focus { outline: 2px solid var(--button-background-color) !important; }
+
+/* Location switcher panel */
+.transition-slowest .flex-col .lead-connector {
+  box-shadow: 0 0 30px 0 #607179;
+  border-radius: 20px;
+}
+
+#app div .transition-slowest {
+  box-shadow: none;
+  z-index: 100;
+}
+
+#location-list-containrer { box-shadow: none; }
+
+.transition-slowest .flex-col .hl_v2-location_switcher { max-height: 75% !important; }
+
+#location-list { max-height: 70% !important; }
+#location-list .wrap { max-height: 100%; }
+
+.wrap div .hl_account {
+  border-radius: 0 20px 20px 0 !important;
+  min-height: 55px;
+}
+
+#app div div .flex .transition-slowest .flex-col .overflow-hidden .lg\:justify-between .hl_v2-location_switcher #location-list-containrer #location-list .wrap div .hl_account {
+  grid-template-columns: 1fr 1fr 1% !important;
+}
+
+/* ============================================================
+   DASHBOARD CHROME
+   Typography, header, action buttons, conversations layout
+   ============================================================ */
+body,
+#app,
+#dashboard-container,
+#location-dashboard,
+.pipeline-ribbon .left-box .smartlist-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+body { background-color: transparent !important; }
+
+#app { font-weight: 500; }
+
+.hl-header p { font-family: "Montserrat Alternates", sans-serif; }
+
+#app > div > div > .flex {
+  background-color: #f7f9fd;
+  transform: translate(4px, 56px);
+}
+
+#app > div > div { margin-top: -50px; }
+
+.transition-slowest .flex-col .overflow-hidden { background-color: #ffffff; }
+.transition-slowest > .flex-col { background-color: #f2f4f7; }
+
+#location-dashboard {
+  padding-top: 49px;
+  background-color: #f2f4f7;
+}
+
+/* Header */
+#app div header,
+.pmd-app div header {
+  background-color: transparent;
+  border: 0;
+  border-bottom-left-radius: 35px;
+  box-shadow: none;
+  height: 62px;
+  padding-top: 4px;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+#app div .container-fluid {
+  background-color: transparent;
+  height: 49px !important;
+  z-index: 10 !important;
+}
+
+#app div div .flex .w-full .hl_allphonenumber--container .hl_affiliate--header .container-fluid {
+  width: auto !important;
+}
+
+.pmd-app div .topmenu-nav { padding-top: 15px; height: 50px; }
+
+#app div .crmx { padding-top: 20px; }
+
+/* Action buttons (navy) */
+#location-dashboard_btn--edit-dashboard,
+#conversations-view-all-btn,
+#new-conversation-btn-collapsed,
+#go-to-calendar-settings,
+#add-object-record-button-Contact,
+#primary-action-button,
+#add-record-btn,
+#data-create-opportunity,
+#create-invoice-btn,
+#pg-chat-widget-list-page-header-btn-primary,
+#pg-chat-widget-list-page-empty-btn-positive-action,
+#hl-media-upload,
+#send-review-request-button,
+#positive-review-ratings-dashboard-card-empty-container,
+#positive-review-response-dashboard-card-empty-container,
+#positive-review-request-dashboard-card-empty-container,
+#positive-video-testimonials-dashboard-card-empty-container,
+#positive-review-widget-dashboard-card-empty-container,
+#positive-qr-code-dashboard-card-empty-container,
+#positive-listings-dashboard-card-empty-container,
+#custom-report-btn-new-report-toggle {
+  background-color: var(--kwd-action-navy) !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+#location-dashboard_btn--edit-dashboard,
+#reporting_common_datepicker-btn-trigger,
+#add-record-btn,
+#import-btn {
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#import-btn { color: var(--kwd-action-navy) !important; }
+
+#location_dashboard-btn-add_quick_filters .justify-start p,
+#location_dashboard-btn-add_quick_filters .justify-start .w-3 {
+  color: var(--kwd-action-navy);
+}
+
+/* Conversations */
+#conversations-content {
+  background-color: #f7f9fd;
+  box-shadow: none;
+}
+
+#conversations-layout {
+  box-shadow: 0 0 10px 0 #607179;
+  margin-top: -41px;
+}
+
+.pmd-app .w-full .crmx { margin-top: -22px; }
+
+#sidebar-overlay { z-index: -10 !important; }
+
+/* ============================================================
+   LOGIN PAGE (NEXUS)
+   Scoped via :has(.hl_login) — only affects login screen.
+   Heavy editorial layout: split hero image, gold seam, KWD palette.
+   ============================================================ */
+html:has(.hl_login),
+body:has(.hl_login) {
+  background: #fafaf7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+body:has(.hl_login) #app,
+body:has(.hl_login) #__next,
+body:has(.hl_login) .hl_login-wrapper,
+body:has(.hl_login) .login-wrapper,
+body:has(.hl_login) .app,
+body:has(.hl_login) .main {
+  background: #fafaf7 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+body:has(.hl_login) > .footer,
+body:has(.hl_login) > footer,
+.hl_login ~ .footer,
+.hl_login ~ footer,
+.hl_login--footer {
+  display: none !important;
+  height: 0 !important;
+}
+
+body:has(.hl_login) .hl_login + *,
+body:has(.hl_login) .hl_login ~ * { display: none !important; }
+
+.hl_login--header label,
+.hl_login--header > span,
+.hl_login--header > div > span,
+.hl_login--header > div > label { display: none !important; }
+
+.hl_login {
+  position: relative;
+  background: #fafaf7 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden;
+  font-family: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hl_login::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 78%;
+  background-image:
+    linear-gradient(135deg, rgba(10, 24, 40, 0.18) 0%, rgba(10, 24, 40, 0.05) 50%, rgba(10, 24, 40, 0) 100%),
+    var(--login-bg-image);
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  -webkit-clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
+  clip-path: polygon(0 0, 75% 0, 55% 100%, 0% 100%);
+  filter: drop-shadow(8px 0 24px rgba(10, 24, 40, 0.25)) drop-shadow(2px 0 0 rgba(10, 24, 40, 0.08));
+  z-index: 0;
+}
+
+.hl_login::after {
+  content: "";
+  position: absolute;
+  top: -5%; bottom: -5%;
+  left: 55%;
+  width: 22%;
+  background: linear-gradient(
+    to right,
+    transparent calc(50% - 8px),
+    rgba(181, 137, 74, 0) calc(50% - 8px),
+    rgba(181, 137, 74, 0.18) calc(50% - 2px),
+    var(--kwd-gold) calc(50% - 0.5px),
+    var(--kwd-gold) calc(50% + 0.5px),
+    rgba(181, 137, 74, 0.18) calc(50% + 2px),
+    rgba(181, 137, 74, 0) calc(50% + 8px),
+    transparent calc(50% + 8px)
+  );
+  -webkit-clip-path: polygon(91% 0, 100% 0, 9% 100%, 0% 100%);
+  clip-path: polygon(91% 0, 100% 0, 9% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hl_login > * { position: relative; z-index: 2; }
+
+.hl_login--header {
+  position: fixed !important;
+  top: 40px;
+  left: 56px;
+  right: 56px;
+  background: transparent !important;
+  border-bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  z-index: 5;
+}
+
+.hl_login--header img {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 12px rgba(0, 0, 0, 0.3));
+  height: 96px !important;
+  max-height: 96px !important;
+  width: auto !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.hl_login--header::before {
+  content: "Manage your entire business in one place.";
+  position: fixed;
+  top: 50%;
+  left: 56px;
+  transform: translateY(-50%);
+  width: min(620px, 42vw);
+  font-family: "Fraunces", "Geist", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hl_login--header::after {
+  content: "SUPPORT  ·  2H AVG          UPTIME  ·  100%          USERS  ·  300+";
+  position: fixed;
+  bottom: 56px;
+  left: 56px;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+  white-space: pre;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hl_login--body::after {
+  content: "© KWD 2026  ·  KALAMAZOOWEBSITEDESIGN.COM";
+  position: fixed;
+  bottom: 24px;
+  right: 56px;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(10, 24, 40, 0.45);
+  white-space: pre;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.hl_login--header select,
+.hl_login--header .form-control,
+.hl_login--header [class*="language"],
+.hl_login--header [class*="Language"] {
+  margin: 0 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(10, 24, 40, 0.12) !important;
+  color: var(--kwd-navy) !important;
+  font-family: "Geist Mono", ui-monospace, monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  height: 36px !important;
+  padding: 0 36px 0 18px !important;
+  border-radius: 999px !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none !important;
+  width: auto !important;
+  min-width: 140px !important;
+  filter: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.hl_login--header select:hover,
+.hl_login--header .form-control:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: var(--kwd-gold) !important;
+}
+
+div.hl_login--body {
+  max-width: 460px !important;
+  width: 100% !important;
+  margin-right: 5vw !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
+  position: relative;
+}
+
+.hl_login--body .card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.hl_login--body .card .card-body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto;
+  padding: 48px 44px 40px !important;
+}
+
+.hl_login--body .login-card-heading {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.hl_login--body .login-card-heading::before {
+  content: "· Secure sign-in";
+  display: block;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kwd-muted);
+  margin-bottom: 14px;
+}
+
+.hl_login--body .heading2 {
+  margin-bottom: 10px;
+  font-family: "Fraunces", "Geist", serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--login-heading-color);
+}
+
+.hl_login--body .heading2::after {
+  content: "Sign in to manage your entire business in one place.";
+  display: block;
+  margin-top: 14px;
+  font-family: "Geist", "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--login-text-color);
+}
+
+.hl_login--body p {
+  color: var(--login-text-color);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.hl_login .form-control {
+  background: #ffffff !important;
+  font-family: "Geist", "Inter", sans-serif;
+  font-size: 15px !important;
+  color: var(--kwd-navy) !important;
+  border: 1px solid var(--login-input-border) !important;
+  border-radius: 2px !important;
+  padding: 14px 16px !important;
+  height: 52px !important;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  letter-spacing: -0.005em;
+}
+
+.hl_login .form-control:hover { border-color: rgba(10, 24, 40, 0.25) !important; }
+
+.hl_login .form-control:focus {
+  border-color: var(--login-input-focus) !important;
+  box-shadow: 0 0 0 4px rgba(181, 137, 74, 0.18) !important;
+  outline: none !important;
+}
+
+.hl_login .form-control::placeholder { color: rgba(10, 24, 40, 0.32) !important; }
+
+.hl_login label,
+.hl_login .form-group label {
+  font-family: "Geist Mono", ui-monospace, monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--kwd-muted) !important;
+  margin-bottom: 10px !important;
+  font-weight: 500 !important;
+}
+
+.hl_login .button-holder.form-group { margin: 24px auto 12px !important; }
+
+.hl_login .btn.btn-blue,
+.hl_login .btn.btn-blue:active,
+.hl_login .btn.btn-blue:focus,
+.hl_login button[type="submit"] {
+  background-color: var(--login-btn-color) !important;
+  border-color: var(--login-btn-color) !important;
+  color: var(--login-btn-text) !important;
+  border-radius: 2px !important;
+  height: 56px !important;
+  min-height: 56px;
+  font-family: "Geist", "Inter", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.005em !important;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease !important;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.15) inset,
+    0 12px 24px -10px rgba(10, 24, 40, 0.4) !important;
+}
+
+.hl_login .btn.btn-blue:hover,
+.hl_login button[type="submit"]:hover {
+  background-color: var(--login-btn-hover) !important;
+  border-color: var(--login-btn-hover) !important;
+  transform: translateY(-1px);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.2) inset,
+    0 18px 30px -10px rgba(10, 24, 40, 0.5),
+    0 0 0 1px var(--kwd-gold) !important;
+}
+
+.hl_login .btn.btn-blue::after,
+.hl_login button[type="submit"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(181, 137, 74, 0.4) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 800ms ease;
+  pointer-events: none;
+}
+
+.hl_login .btn.btn-blue:hover::after,
+.hl_login button[type="submit"]:hover::after { transform: translateX(100%); }
+
+.hl_login a {
+  color: var(--login-link-color) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 13px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+.hl_login a:hover {
+  color: var(--kwd-gold-hover) !important;
+  border-bottom-color: var(--kwd-gold);
+}
+
+.hl_login input[type="checkbox"] {
+  accent-color: var(--kwd-gold);
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.hl_login ::selection { background: var(--kwd-gold); color: var(--kwd-cream); }
+
+@media (max-width: 980px) {
+  .hl_login {
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+  }
+  .hl_login::before {
+    width: 100%;
+    height: 38vh;
+    top: 0;
+    bottom: auto;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  }
+  .hl_login::after { display: none; }
+  .hl_login--header {
+    top: 100px;
+    left: 28px;
+  }
+  .hl_login--header::before,
+  .hl_login--header::after,
+  .hl_login--body::after { display: none; }
+  div.hl_login--body {
+    margin: 0 16px 5vh !important;
+    max-width: calc(100% - 32px) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .hl_login--body .card .card-body { padding: 36px 24px 32px !important; }
+  .hl_login--body .heading2 { font-size: 30px; }
+}

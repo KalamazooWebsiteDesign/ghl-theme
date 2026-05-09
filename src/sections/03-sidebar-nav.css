@@ -1,0 +1,115 @@
+/* ============================================================
+   SIDEBAR / NAV THEME
+   Targets: #sidebar-v2, nav, #quickActions, location switcher
+   Vars used: --nav-menus-background-color, --nav-menu-*,
+              --sidebar-agency-back-button, --location-switcher-*
+   ============================================================ */
+.v2-open #sidebar-v2,
+#sidebar-v2 .default-bg-color,
+#sidebar-v2.default-bg-color,
+#sidebar-v2 #sb_divider-1 {
+  background: var(--nav-menus-background-color) !important;
+}
+
+#sidebar-v2 #backButtonv2 {
+  background: var(--sidebar-agency-back-button) !important;
+}
+
+#quickActions {
+  border: 1px solid var(--nav-menu-icon-color) !important;
+  border-radius: 50px !important;
+}
+
+#quickActions img {
+  filter: brightness(0.66) contrast(1.84) hue-rotate(53deg) saturate(1.91);
+}
+
+nav a { margin-top: 5px !important; }
+
+#sidebar-v2 .text-white,
+nav .text-white,
+nav span {
+  --tw-text-opacity: 1;
+  color: var(--nav-menu-text-color) !important;
+}
+
+#sb_agency-partners svg path,
+#sb_sites svg path,
+#sb_contacts svg path {
+  fill: var(--nav-menu-icon-color) !important;
+}
+
+nav svg path { stroke: var(--nav-menu-icon-color) !important; }
+
+nav a.active,
+nav a:hover,
+#sb_other-settings {
+  background: var(--nav-hover-background-color) !important;
+}
+
+#location-switcher-sidbar-v2 {
+  background: var(--location-switcher-background-color) !important;
+}
+
+/* Settings / back-to-agency icon swap */
+#sb_agency-settings::before,
+#sb_settings::before,
+#sb_undefined::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 16px;
+  font-size: 17px;
+}
+#sb_agency-settings::before,
+#sb_settings::before { content: "\f013"; }
+#sb_undefined::before { content: "\f0e2"; }
+
+#sb_agency-settings,
+#sb_settings,
+#sb_undefined {
+  padding-left: 40px !important;
+}
+#sb_agency-settings > img,
+#sb_settings > img,
+#sb_undefined > img { display: none; }
+
+/* Card headers */
+.card-header { background: var(--card-header-background-color) !important; }
+.card-header h2,
+.card-header h3 { color: var(--card-header-text-color) !important; }
+
+#dashboard .hl_tasks-list button.dropdown-toggle,
+#dashboard .hl_dashboard--sales-funnel .btn.btn-primary {
+  background-color: transparent !important;
+}
+
+.bg-apple-500 { background: var(--button-background-color) !important; }
+.focus\:outline-none:focus { outline: 2px solid var(--button-background-color) !important; }
+
+/* Location switcher panel */
+.transition-slowest .flex-col .lead-connector {
+  box-shadow: 0 0 30px 0 #607179;
+  border-radius: 20px;
+}
+
+#app div .transition-slowest {
+  box-shadow: none;
+  z-index: 100;
+}
+
+#location-list-containrer { box-shadow: none; }
+
+.transition-slowest .flex-col .hl_v2-location_switcher { max-height: 75% !important; }
+
+#location-list { max-height: 70% !important; }
+#location-list .wrap { max-height: 100%; }
+
+.wrap div .hl_account {
+  border-radius: 0 20px 20px 0 !important;
+  min-height: 55px;
+}
+
+#app div div .flex .transition-slowest .flex-col .overflow-hidden .lg\:justify-between .hl_v2-location_switcher #location-list-containrer #location-list .wrap div .hl_account {
+  grid-template-columns: 1fr 1fr 1% !important;
+}

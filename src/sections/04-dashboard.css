@@ -1,0 +1,116 @@
+/* ============================================================
+   DASHBOARD CHROME
+   Typography, header, action buttons, conversations layout
+   ============================================================ */
+body,
+#app,
+#dashboard-container,
+#location-dashboard,
+.pipeline-ribbon .left-box .smartlist-title {
+  font-family: "Montserrat", sans-serif;
+}
+
+body { background-color: transparent !important; }
+
+#app { font-weight: 500; }
+
+.hl-header p { font-family: "Montserrat Alternates", sans-serif; }
+
+#app > div > div > .flex {
+  background-color: #f7f9fd;
+  transform: translate(4px, 56px);
+}
+
+#app > div > div { margin-top: -50px; }
+
+.transition-slowest .flex-col .overflow-hidden { background-color: #ffffff; }
+.transition-slowest > .flex-col { background-color: #f2f4f7; }
+
+#location-dashboard {
+  padding-top: 49px;
+  background-color: #f2f4f7;
+}
+
+/* Header */
+#app div header,
+.pmd-app div header {
+  background-color: transparent;
+  border: 0;
+  border-bottom-left-radius: 35px;
+  box-shadow: none;
+  height: 62px;
+  padding-top: 4px;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
+#app div .container-fluid {
+  background-color: transparent;
+  height: 49px !important;
+  z-index: 10 !important;
+}
+
+#app div div .flex .w-full .hl_allphonenumber--container .hl_affiliate--header .container-fluid {
+  width: auto !important;
+}
+
+.pmd-app div .topmenu-nav { padding-top: 15px; height: 50px; }
+
+#app div .crmx { padding-top: 20px; }
+
+/* Action buttons (navy) */
+#location-dashboard_btn--edit-dashboard,
+#conversations-view-all-btn,
+#new-conversation-btn-collapsed,
+#go-to-calendar-settings,
+#add-object-record-button-Contact,
+#primary-action-button,
+#add-record-btn,
+#data-create-opportunity,
+#create-invoice-btn,
+#pg-chat-widget-list-page-header-btn-primary,
+#pg-chat-widget-list-page-empty-btn-positive-action,
+#hl-media-upload,
+#send-review-request-button,
+#positive-review-ratings-dashboard-card-empty-container,
+#positive-review-response-dashboard-card-empty-container,
+#positive-review-request-dashboard-card-empty-container,
+#positive-video-testimonials-dashboard-card-empty-container,
+#positive-review-widget-dashboard-card-empty-container,
+#positive-qr-code-dashboard-card-empty-container,
+#positive-listings-dashboard-card-empty-container,
+#custom-report-btn-new-report-toggle {
+  background-color: var(--kwd-action-navy) !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+#location-dashboard_btn--edit-dashboard,
+#reporting_common_datepicker-btn-trigger,
+#add-record-btn,
+#import-btn {
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#import-btn { color: var(--kwd-action-navy) !important; }
+
+#location_dashboard-btn-add_quick_filters .justify-start p,
+#location_dashboard-btn-add_quick_filters .justify-start .w-3 {
+  color: var(--kwd-action-navy);
+}
+
+/* Conversations */
+#conversations-content {
+  background-color: #f7f9fd;
+  box-shadow: none;
+}
+
+#conversations-layout {
+  box-shadow: 0 0 10px 0 #607179;
+  margin-top: -41px;
+}
+
+.pmd-app .w-full .crmx { margin-top: -22px; }
+
+#sidebar-overlay { z-index: -10 !important; }
