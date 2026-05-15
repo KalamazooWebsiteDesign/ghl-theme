@@ -1,4 +1,65 @@
-/*! KWD GHL Theme — built 2026-05-09T22:36:52Z */
+/*! KWD GHL Theme — built 2026-05-15T16:01:30Z */
+
+/* ============================================================
+   GLOBALS — sitewide patches
+   Extracted from agency Custom CSS field on 2026-05-15.
+   These are NOT login-only; they apply across the whole portal.
+   Pre-v1.0.5 these lived only in the GHL field; now version-controlled.
+   ============================================================ */
+
+/* Modal/drawer z-index safety — keep modals above all GHL chrome */
+body.modal-open .modal-backdrop,
+body:has(.modal.show) .modal-backdrop {
+  z-index: 2147482000 !important;
+}
+
+body.modal-open .modal,
+body:has(.modal-backdrop) .modal,
+body:has(.modal-backdrop) .modal.show,
+body:has(.modal-backdrop) [role="dialog"][aria-modal="true"] {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  pointer-events: auto !important;
+}
+
+body.modal-open .modal-dialog,
+body.modal-open .modal-content,
+body:has(.modal-backdrop) .modal-dialog,
+body:has(.modal-backdrop) .modal-content,
+body:has(.modal-backdrop) [role="dialog"][aria-modal="true"] > * {
+  position: relative !important;
+  z-index: 2147483100 !important;
+}
+
+/* Wrapper / iframe layout fixes */
+#app div .hl_wrapper {
+  padding-top: 0;
+  width: 100%;
+  overflow: auto;
+  top: -29px;
+}
+
+#app div div .flex .w-full div .hl_wrapper {
+  height: 100% !important;
+}
+
+.hl_wrapper .custom-link iframe {
+  position: relative;
+  height: 100%;
+}
+
+.hl_wrapper .hr-wrapper-container {
+  position: relative;
+  top: 70px;
+}
+
+#locations-account-details .hl-wrapper-container {
+  position: relative;
+  top: 66px;
+}
 
 /* ============================================================
    FONTS — Google Fonts imports
@@ -185,7 +246,10 @@ body { background-color: transparent !important; }
 
 #app > div > div > .flex {
   background-color: #f7f9fd;
-  transform: translate(4px, 56px);
+  /* v1.0.5: was translate(4px, 56px). 4px X caused +4px horizontal
+     viewport overflow on every page (perma scrollbar). Y bumped 56→70
+     for header breathing room — net header sits at y≈20 instead of y=6. */
+  transform: translate(0, 70px);
 }
 
 #app > div > div { margin-top: -50px; }
@@ -846,4 +910,12 @@ html:not([data-kwd-page="settings"]) .flex.v2-open header.hl_header {
 html:not([data-kwd-page="settings"]) .flex.v2-open:has(#sidebar-v2:hover) header.hl_header {
   left: 234px !important;
   width: calc(100% - 234px) !important;
+}
+
+/* v1.0.5: settings pages keep sidebar expanded at ~224px (text-only,
+   no icon-collapse). Header was full-viewport width sitting behind
+   the sidebar's left edge — now clamped to clear it. */
+html[data-kwd-page="settings"] .flex.v2-open header.hl_header {
+  left: 224px !important;
+  width: calc(100% - 224px) !important;
 }

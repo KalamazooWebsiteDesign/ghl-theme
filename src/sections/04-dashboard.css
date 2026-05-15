@@ -18,7 +18,10 @@ body { background-color: transparent !important; }
 
 #app > div > div > .flex {
   background-color: #f7f9fd;
-  transform: translate(4px, 56px);
+  /* v1.0.5: was translate(4px, 56px). 4px X caused +4px horizontal
+     viewport overflow on every page (perma scrollbar). Y bumped 56→70
+     for header breathing room — net header sits at y≈20 instead of y=6. */
+  transform: translate(0, 70px);
 }
 
 #app > div > div { margin-top: -50px; }

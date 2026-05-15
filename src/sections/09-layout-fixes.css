@@ -33,3 +33,11 @@ html:not([data-kwd-page="settings"]) .flex.v2-open:has(#sidebar-v2:hover) header
   left: 234px !important;
   width: calc(100% - 234px) !important;
 }
+
+/* v1.0.5: settings pages keep sidebar expanded at ~224px (text-only,
+   no icon-collapse). Header was full-viewport width sitting behind
+   the sidebar's left edge — now clamped to clear it. */
+html[data-kwd-page="settings"] .flex.v2-open header.hl_header {
+  left: 224px !important;
+  width: calc(100% - 224px) !important;
+}

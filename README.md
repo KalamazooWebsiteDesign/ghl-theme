@@ -9,7 +9,7 @@ Hosted via [jsDelivr](https://www.jsdelivr.com/) — single `<link>` tag in GHL 
 Paste this into **Agency → Settings → Company → Custom JavaScript** (the Custom CSS field rejects HTML tags — loader injects the link tag for you and also marks `<html data-kwd-page="settings|main">` for SPA-aware CSS scoping):
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.3/dist/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@v1.0.5/dist/loader.js"></script>
 ```
 
 The loader auto-loads the matching CSS at the same version tag.
@@ -25,13 +25,20 @@ https://cdn.jsdelivr.net/gh/KalamazooWebsiteDesign/ghl-theme@main/dist/loader.js
 
 ```
 src/sections/
-  01-fonts.css         Google Fonts imports
-  02-tokens.css        :root CSS variables (brand colors, fonts)
-  03-sidebar-nav.css   Sidebar + nav theming
-  04-dashboard.css     Header, action buttons, conversations
-  05-login.css         NEXUS login screen (scoped via :has(.hl_login))
-dist/main.css          Built bundle (committed for jsDelivr)
-build.sh               Concatenates sections into dist/main.css
+  00-globals.css           Sitewide patches (modal z-index, iframe wrappers)
+  01-fonts.css             Google Fonts imports
+  02-tokens.css            :root CSS variables (brand colors, fonts)
+  03-sidebar-nav.css       Sidebar + nav theming
+  04-dashboard.css         Header, action buttons, conversations
+  05-login.css             NEXUS login screen (scoped via :has(.hl_login))
+  06-sidebar-reorder.css   Pin Onboarding / KWD Hub / Tutorials to top
+  07-topbar-hide.css       Hide unused topbar widgets
+  08-sidebar-collapse.css  70px icon-only sidebar, expands to 230px on hover
+  09-layout-fixes.css      Header + section offsets (collapse-aware)
+src/loader.js              SPA-aware loader; sets html[data-kwd-page]
+dist/main.css              Built bundle (committed for jsDelivr)
+dist/loader.js             Built loader copy (committed for jsDelivr)
+build.sh                   Concatenates sections into dist/main.css
 ```
 
 ## Develop
