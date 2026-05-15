@@ -33,16 +33,21 @@ body:has(.modal-backdrop) [role="dialog"][aria-modal="true"] > * {
 }
 
 /* Wrapper / iframe layout fixes */
-/* v1.0.8: was `top: -29px` from the original GHL field. That pulled
-   the wrapper UP under the floating header widgets (Ask AI / Create /
-   bell / avatar) causing overlap. Set to 0 — let other rules
-   (translate on .flex, top:70 on section.w-full and the micro-app)
-   handle vertical offset. */
+/* v1.0.9: push .hl_wrapper content down 70px to clear the fixed header.
+   Sub-accounts / reselling / marketplace / agency_dashboard all wrap
+   their content in <section class="hl_wrapper"> which sits at top of
+   .flex (y=20). Header is also fixed inside .flex at y=20–82, so the
+   page's own top-right buttons (Create Sub-Account, View Scheduled
+   Reports) were colliding with the floating header widgets (Ask AI /
+   bell / avatar) at y=32–64. v1.0.8 set top:0 which left this gap;
+   v1.0.6 added the same top:70 only to section.w-full, missing
+   .hl_wrapper which is a different selector on those pages. */
 #app div .hl_wrapper {
   padding-top: 0;
   width: 100%;
   overflow: auto;
-  top: 0;
+  position: relative;
+  top: 70px;
 }
 
 #app div div .flex .w-full div .hl_wrapper {
