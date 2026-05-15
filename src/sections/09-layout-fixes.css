@@ -19,6 +19,13 @@ html:not([data-kwd-page="settings"]) .flex.v2-open > section.w-full {
   width: auto !important;
   min-width: 0 !important;
   max-width: 100% !important;
+  /* v1.0.6: push content down past the fixed header (~56px tall).
+     Previously this offset lived in the GHL Custom CSS field as
+     `#app > div > div > .flex > .w-full { top: 70px }`. Without it,
+     page-internal title bars on Sub-accounts / Prospecting / Reselling /
+     Add-ons collided with Ask AI / Create / bell / avatar in the header. */
+  position: relative !important;
+  top: 70px !important;
 }
 
 html:not([data-kwd-page="settings"]) .flex.v2-open header.hl_header {
