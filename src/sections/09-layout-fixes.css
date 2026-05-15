@@ -28,6 +28,21 @@ html:not([data-kwd-page="settings"]) .flex.v2-open > section.w-full {
   top: 70px !important;
 }
 
+/* v1.0.7: Prospecting micro-app uses #location_prospect_micro_app
+   (not section.w-full, not .hl_wrapper) so neither existing fix wins.
+   GHL hardcodes width: calc(-14rem + 100vw) on
+   .sidebar-v2-agency #location_prospect_micro_app.hl_sidebar-v2-open-container
+   AND .expanded-sidebar[data-v-4aef4aa8] — assuming 224px expanded
+   sidebar. With our 70px collapsed sidebar, that leaves a 154px gap. */
+html:not([data-kwd-page="settings"]) .flex.v2-open > #location_prospect_micro_app {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  position: relative !important;
+  top: 70px !important;
+}
+
 html:not([data-kwd-page="settings"]) .flex.v2-open header.hl_header {
   left: 74px !important;
   width: calc(100% - 74px) !important;
