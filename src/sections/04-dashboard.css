@@ -17,7 +17,10 @@ body { background-color: transparent !important; }
 .hl-header p { font-family: "Montserrat Alternates", sans-serif; }
 
 #app > div > div > .flex {
-  background-color: #f7f9fd;
+  /* v1.0.10: was #f7f9fd (light blue-gray) — showed through the
+     transparent header making the top bar a different shade from
+     the white content cards. Unified to white. */
+  background-color: #ffffff;
   /* v1.0.5: was translate(4px, 56px). 4px X caused +4px horizontal
      viewport overflow on every page (perma scrollbar). Y bumped 56→70
      for header breathing room — net header sits at y≈20 instead of y=6. */
