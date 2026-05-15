@@ -33,11 +33,16 @@ body:has(.modal-backdrop) [role="dialog"][aria-modal="true"] > * {
 }
 
 /* Wrapper / iframe layout fixes */
+/* v1.0.8: was `top: -29px` from the original GHL field. That pulled
+   the wrapper UP under the floating header widgets (Ask AI / Create /
+   bell / avatar) causing overlap. Set to 0 — let other rules
+   (translate on .flex, top:70 on section.w-full and the micro-app)
+   handle vertical offset. */
 #app div .hl_wrapper {
   padding-top: 0;
   width: 100%;
   overflow: auto;
-  top: -29px;
+  top: 0;
 }
 
 #app div div .flex .w-full div .hl_wrapper {
